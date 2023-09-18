@@ -7,11 +7,18 @@ export default async function MoreInfoRSC({ name }) {
       switch (name) {
         case "Roger Gomez Castells":
           return r({
+            alias: "roggc",
             likes: "eating pizza",
             other: "supporter for fcBarcelona",
+            email: "roggc9@gmail.com",
           });
         default:
-          return r({ likes: "...", other: "..." });
+          return r({
+            likes: "...",
+            other: "...",
+            alias: "foo",
+            email: "foo@bar.com",
+          });
       }
     }, 1000)
   );
