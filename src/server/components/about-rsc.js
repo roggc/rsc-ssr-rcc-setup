@@ -13,6 +13,6 @@ export default async function AboutRSC({ author }) {
     }, 1000)
   );
   return (
-    <About __isClient__="../components/home.js" data={data} author={author} />
+    <About __isClient__="../components/about.js" data={data} author={author} />
   );
 }

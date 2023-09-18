@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import RSC from "./rsc.js";
 
 export default function About({ data, author }) {

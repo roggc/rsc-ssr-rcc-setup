@@ -4,6 +4,7 @@ import AboutRSC from "./about-rsc.js";
 import MoreInfoRSC from "./more-info-rsc.js";
 import Provider from "../../client/slices.js";
 import Layout from "../../client/components/layout.js";
+import MessageRSC from "./message-rsc.js";
 
 const title = "My incredible app";
 
@@ -23,6 +24,8 @@ export default async function Router({ url }) {
       return <AboutRSC {...props} />;
     case "/more-info":
       return <MoreInfoRSC {...props} />;
+    case "/message":
+      return <MessageRSC {...props} />;
     default:
       return <HomeRSC {...props} />;
   }
