@@ -1,48 +1,36 @@
 import React, { useState } from "react";
-import Footer from "./footer.js";
-import { useSlice } from "../slices.js";
 import RSC from "./rsc.js";
 
 const LoadingPage = ({ page }) => <>loading {page} page...</>;
 
-export default function Layout() {
-  const author = "Jae Doe";
-  const [count, setCount] = useSlice("count");
-  const [count2, reduxDispatch, { increment }] = useSlice("count2");
+export default function Layout({ title }) {
   const [page, setPage] = useState({ name: "home" });
 
   return (
     <html>
       <head>
-        <title>My blog</title>
+        <title>{title}</title>
       </head>
       <body>
-        <nav>
-          <a onClick={() => setPage({ name: "home" })}>Home</a>
-          <hr />
-          <input />
-          <hr />
-          <button onClick={() => setCount((c) => c + 1)}>+</button>
-          {count}
-          <hr />
-          <button onClick={() => reduxDispatch(increment())}>+</button>
-          {count2}
-          <hr />
-          <button
+        <div>
+          <a href="#" onClick={() => setPage({ name: "home" })}>
+            home
+          </a>
+          <a
+            href="#"
             onClick={() =>
-              setPage({ name: "greeting", props: { name: "Roger" } })
+              setPage({
+                name: "about",
+                props: { author: "Roger Gomez Castells" },
+              })
             }
           >
-            go
-          </button>
-          <hr />
-        </nav>
-        <main>
-          <RSC key={page.name} componentName={page.name} {...page.props}>
-            <LoadingPage page={page.name} />
-          </RSC>
-        </main>
-        <Footer author={author} />
+            about
+          </a>
+        </div>
+        <RSC key={page.name} componentName={page.name} {...page.props}>
+          <LoadingPage page={page.name} />
+        </RSC>
       </body>
     </html>
   );

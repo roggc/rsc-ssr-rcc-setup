@@ -1,10 +1,11 @@
 import React from "react";
 import HomeRSC from "./home-rsc.js";
-import GreetingRSC from "./greeting-rsc.js";
-import AgeRSC from "./age-rsc.js";
-import EmailRSC from "./email-rsc.js";
+import AboutRSC from "./about-rsc.js";
+import MoreInfoRSC from "./more-info-rsc.js";
 import Provider from "../../client/slices.js";
 import Layout from "../../client/components/layout.js";
+
+const title = "My incredible app";
 
 export default async function Router({ url }) {
   const props = JSON.parse(url.searchParams.get("props"));
@@ -13,17 +14,15 @@ export default async function Router({ url }) {
     case "/":
       return (
         <Provider __isClient__="../slices.js">
-          <Layout __isClient__="../components/layout.js" />
+          <Layout __isClient__="../components/layout.js" title={title} />
         </Provider>
       );
     case "/home":
       return <HomeRSC {...props} />;
-    case "/greeting":
-      return <GreetingRSC {...props} />;
-    case "/age":
-      return <AgeRSC {...props} />;
-    case "/email":
-      return <EmailRSC {...props} />;
+    case "/about":
+      return <AboutRSC {...props} />;
+    case "/more-info":
+      return <MoreInfoRSC {...props} />;
     default:
       return <HomeRSC {...props} />;
   }
