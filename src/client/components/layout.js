@@ -34,7 +34,7 @@ export default function Layout({ title }) {
 
 const Nav = styled.div`
   display: flex;
-  gap: 10px;
+  ${({ theme }) => `gap: ${theme.gap}px;`}
 `;
 
 const Body = styled.body`
