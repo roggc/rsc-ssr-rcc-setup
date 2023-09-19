@@ -5,6 +5,7 @@ import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import json from "@rollup/plugin-json";
 import replace from "@rollup/plugin-replace";
 import { globby } from "globby";
+import alias from "@rollup/plugin-alias";
 
 export default [
   {
@@ -15,9 +16,21 @@ export default [
     output: {
       dir: "dist",
       format: "es",
+      preserveModules: true,
+      interop: "auto",
     },
-    plugins: [babel({ babelHelpers: "bundled", exclude: "node_modules/**" })],
-    preserveModules: true,
+    plugins: [
+      babel({ babelHelpers: "bundled", exclude: "node_modules/**" }),
+      alias({
+        entries: [
+          {
+            find: "styled-components",
+            replacement:
+              "node_modules/styled-components/dist/styled-components.esm.js",
+          },
+        ],
+      }),
+    ],
   },
   {
     input: (await globby("src/client/*.js"))
@@ -33,11 +46,21 @@ export default [
       dir: "public",
       format: "es",
       entryFileNames: "[name].js",
+      preserveModules: true,
+      interop: "auto",
     },
     plugins: [
       babel({
         babelHelpers: "bundled",
         exclude: "node_modules/**",
+      }),
+      alias({
+        entries: [
+          {
+            find: "styled-components",
+            replacement: "styled-components/dist/styled-components.js",
+          },
+        ],
       }),
       peerDepsExternal(),
       commonjs(),
@@ -47,6 +70,5 @@ export default [
         "process.env.NODE_ENV": JSON.stringify("development"),
       }),
     ],
-    preserveModules: true,
   },
 ];

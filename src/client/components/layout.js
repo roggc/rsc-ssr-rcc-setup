@@ -2,6 +2,7 @@ import React from "react";
 import RSC from "./rsc.js";
 import Link from "./link.js";
 import { useNavigation } from "../hooks/index.js";
+import styled from "styled-components";
 
 export default function Layout({ title }) {
   const page = useNavigation();
@@ -12,7 +13,7 @@ export default function Layout({ title }) {
         <title>{title}</title>
       </head>
       <body>
-        <div>
+        <Nav>
           <Link page={{ name: "home" }}>home</Link>
           <Link
             page={{
@@ -22,7 +23,7 @@ export default function Layout({ title }) {
           >
             about
           </Link>
-        </div>
+        </Nav>
         <RSC key={page.name} componentName={page.name} {...page.props}>
           loading {page.name} page...
         </RSC>
@@ -30,3 +31,8 @@ export default function Layout({ title }) {
     </html>
   );
 }
+
+const Nav = styled.div`
+  display: flex;
+  gap: 10px;
+`;
