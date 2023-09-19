@@ -12,7 +12,7 @@ export default function Layout({ title }) {
       <head>
         <title>{title}</title>
       </head>
-      <body>
+      <Body>
         <Nav>
           <Link page={{ name: "home" }}>home</Link>
           <Link
@@ -27,7 +27,7 @@ export default function Layout({ title }) {
         <RSC key={page.name} componentName={page.name} {...page.props}>
           loading {page.name} page...
         </RSC>
-      </body>
+      </Body>
     </html>
   );
 }
@@ -35,4 +35,8 @@ export default function Layout({ title }) {
 const Nav = styled.div`
   display: flex;
   gap: 10px;
+`;
+
+const Body = styled.body`
+  font-family: sans-serif;
 `;
