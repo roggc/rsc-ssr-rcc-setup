@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import RSC from "./rsc.js";
-
-const LoadingPage = ({ page }) => <>loading {page} page...</>;
+import Link from "./link.js";
+import { useNavigation } from "../hooks/index.js";
 
 export default function Layout({ title }) {
-  const [page, setPage] = useState({ name: "home" });
+  const page = useNavigation();
 
   return (
     <html>
@@ -13,23 +13,18 @@ export default function Layout({ title }) {
       </head>
       <body>
         <div>
-          <a href="#" onClick={() => setPage({ name: "home" })}>
-            home
-          </a>
-          <a
-            href="#"
-            onClick={() =>
-              setPage({
-                name: "about",
-                props: { author: "Roger Gomez Castells" },
-              })
-            }
+          <Link page={{ name: "home" }}>home</Link>
+          <Link
+            page={{
+              name: "about",
+              props: { author: "Roger Gomez Castells" },
+            }}
           >
             about
-          </a>
+          </Link>
         </div>
         <RSC key={page.name} componentName={page.name} {...page.props}>
-          <LoadingPage page={page.name} />
+          loading {page.name} page...
         </RSC>
       </body>
     </html>

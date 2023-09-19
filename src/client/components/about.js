@@ -14,7 +14,7 @@ export default function About({ data, author }) {
         <button onClick={() => setIsMoreInfo(true)}>More Info</button>
       </div>
       {isMoreInfo && (
-        <RSC componentName={"more-info"} name={author}>
+        <RSC componentName="more-info" name={author}>
           loading more info about {author}...
         </RSC>
       )}
