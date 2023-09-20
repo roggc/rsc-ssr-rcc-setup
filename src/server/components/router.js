@@ -7,6 +7,7 @@ import Layout from "../../client/components/layout.js";
 import MessageRSC from "./message-rsc.js";
 import ThemeProvider from "../../client/components/theme-provider.js";
 import theme from "../../client/theme.js";
+import Ups from "../../client/components/ups.js";
 
 const title = "My incredible app";
 
@@ -34,6 +35,6 @@ export default async function Router({ url }) {
     case "/message":
       return <MessageRSC {...props} />;
     default:
-      return <HomeRSC {...props} />;
+      return <Ups __isClient__="../components/ups.js" />;
   }
 }
