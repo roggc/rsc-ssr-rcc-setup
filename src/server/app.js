@@ -28,7 +28,6 @@ app.use(async (req, res, next) => {
       res.setHeader("Content-Type", "application/json");
       res.end(clientJSXString);
     } else {
-      const clientJSX = JSON.parse(clientJSXString, parseJSX);
       const fixedJSX = await fillJSXwithClientComponents(clientJSX);
       const bootstrapScriptContent = `window.__INITIAL_CLIENT_JSX_STRING__ = ${clientJSXString};`;
       const { pipe } = renderToPipeableStream(fixedJSX, {
