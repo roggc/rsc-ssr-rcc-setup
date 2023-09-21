@@ -17,7 +17,6 @@ export default [
       dir: "dist",
       format: "es",
       preserveModules: true,
-      interop: "auto",
     },
     plugins: [
       babel({ babelHelpers: "bundled", exclude: "node_modules/**" }),
@@ -47,7 +46,6 @@ export default [
       format: "es",
       entryFileNames: "[name].js",
       preserveModules: true,
-      interop: "auto",
     },
     plugins: [
       babel({
