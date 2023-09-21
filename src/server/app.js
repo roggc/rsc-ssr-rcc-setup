@@ -10,6 +10,8 @@ import React from "react";
 
 const app = express();
 app.use(express.static("public"));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/favicon.ico", (req, res, next) => {
   res.end("");
@@ -18,7 +20,9 @@ app.get("/favicon.ico", (req, res, next) => {
 app.use(async (req, res, next) => {
   try {
     const url = new URL(req.url, `http://${req.headers.host}`);
-    const clientJSX = await renderJSXToClientJSX(<Router url={url} />);
+    const clientJSX = await renderJSXToClientJSX(
+      <Router url={url} body={req.body} />
+    );
     const clientJSXString = JSON.stringify(clientJSX, stringifyJSX);
     if (url.pathname !== "/") {
       res.setHeader("Content-Type", "application/json");

@@ -9,11 +9,9 @@ import ThemeProvider from "../../client/components/theme-provider.js";
 import theme from "../../client/theme.js";
 import Ups from "../../client/components/ups.js";
 
-const title = "My incredible app";
+const title = "My app";
 
-export default async function Router({ url }) {
-  const props = JSON.parse(url.searchParams.get("props"));
-
+export default async function Router({ url, body: { props } }) {
   switch (url.pathname) {
     case "/":
       return (
