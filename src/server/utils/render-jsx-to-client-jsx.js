@@ -35,8 +35,6 @@ export async function renderJSXToClientJSX(jsx, key = null) {
           key: key ?? jsx.key,
         };
       } else if (typeof jsx.type === "function") {
-        // This is a custom React component (like <Footer />).
-        // Call its function, and repeat the procedure for the JSX it returns.
         const Component = jsx.type;
         const props = jsx.props;
         if (Object.keys(props).some((k) => k === "__isClient__")) {
