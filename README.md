@@ -12,3 +12,5 @@ This is a setup for development with RSC (React Server Components) plus SSR (Ser
 ## More Info
 
 An article explaining the theory behind this project can be found [here](https://medium.com/@roggc9/rsc-ssr-rcc-react-client-components-implementation-from-scratch-e96ba0d6e1b4).
+
+Another article explaining this setup and the theory behind it can be found [here](https://medium.com/@roggc9/a-setup-for-rsc-development-1524cb1015ca).
