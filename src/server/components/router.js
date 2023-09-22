@@ -11,7 +11,7 @@ import Ups from "../../client/components/ups.js";
 
 const title = "My app";
 
-export default function Router({ url, body: { props } }) {
+export default async function Router({ url, body: { props } }) {
   switch (url.pathname) {
     case "/":
       return (
