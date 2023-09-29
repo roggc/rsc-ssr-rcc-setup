@@ -1,5 +1,7 @@
 # RSC + SSR + RCC setup
 
+**!!! IMPORTANT!!! This is outdated and not mantained. Please visit [HERE](https://github.com/roggc/rsc) for a RSC Setup and [HERE](https://github.com/roggc/rsc-ssr) for a RSC+SSR Setup.**
+
 This is a setup for development with RSC (React Server Components) plus SSR (Server Side Rendering) plus RCC (React Client Components). An identical setup but with the minimum to start developing can be found [here](https://github.com/roggc/rsc). I left this setup (with more RCC's than necessary) for the people with less experience to see how it works.
 
 ## How to install and run the project.
